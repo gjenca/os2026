@@ -12,7 +12,8 @@ int main() {
 
     printf("Hello, world!\n");
     if ((pid = fork())> 0) {
-        printf("Parent, child má pid %d\n",pid);        wait(&status);
+        printf("Parent, child má pid %d\n",pid);        
+        wait(&status);
         printf("Child proces skončil exit status=%d\n",WEXITSTATUS(status));
     } else {
         // pid==0
