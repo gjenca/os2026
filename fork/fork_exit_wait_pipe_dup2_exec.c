@@ -27,7 +27,9 @@ int main() {
         }
         wait(&status);
     } else {
+        close(pipefd[0]); // Citavy koniec rury child proces nepotrebuje
         dup2(pipefd[1],1);
+        close(pipefd[1]); // pipefd[1] je uz zduplikovane
         execl("/bin/ls","/bin/ls","/etc",NULL);
     }
 }
