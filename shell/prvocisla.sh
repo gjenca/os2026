@@ -1,6 +1,13 @@
 #!/bin/bash
 
-for N in $(seq 2 100)
+UNTIL=100
+
+if [ "$#" == 1 ]
+then
+    UNTIL="$1"
+fi
+
+for N in $(seq 2 "$UNTIL")
 do
     JE_PRVOCISLO="T"
     POKIAL=$(echo "$N/2" | bc)
